@@ -1,0 +1,10 @@
+--index-url https://download.pytorch.org/whl/cu126
+--extra-index-url https://pypi.org/simple
+
+torch
+torchvision
+
+pytest-playwright==0.7.0
+tqdm==4.67.1
+keras==3.10.0
+tensorboard==2.20.0
