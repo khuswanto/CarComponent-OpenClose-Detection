@@ -1,8 +1,13 @@
+import os
+from io import BytesIO
 from enum import Enum
 from typing import AsyncIterator
 from pathlib import Path
 from contextlib import asynccontextmanager
+
+from PIL import Image
 from playwright.async_api import async_playwright, Page
+from playwright._impl._errors import TimeoutError
 
 
 class Door(Enum):
@@ -21,6 +26,9 @@ class Car3D:
       console.log(`pageX: ${e.pageX}, pageY: ${e.pageY}`); // relative to whole page (scroll)
     };
     """
+    def __init__(self, variant: str = 'dark'):
+        self.variant = variant
+
     @property
     def page(self) -> Page:
         return self._page
@@ -33,8 +41,9 @@ class Car3D:
     async def show_page(self, **kwargs) -> AsyncIterator:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=False)
-            self.page = await browser.new_page(viewport={"width": 800, "height": 800}, **kwargs)
+            self.page = await browser.new_page()
             await self.page.goto("https://euphonious-concha-ab5c5d.netlify.app/", wait_until="networkidle")
+            await self.page.emulate_media(color_scheme='dark')
 
             yield self.page
 
@@ -63,13 +72,22 @@ class Car3D:
             await page.locator("button").nth(door.value).click()
         await self.hide_button()
 
-    async def screenshot(self, filepath: Path = None) -> bytes:
+    async def screenshot(self, filepath: Path = None) -> Image:
+        new_size = 620
+        im_bytes = await self.page.locator('canvas').screenshot()
+        im = Image.open(BytesIO(im_bytes))
+
+        # Crop the center of the image
+        width, height = im.size
+        left = (width - new_size) / 2
+        top = (height - new_size) / 2
+        right = (width + new_size) / 2
+        bottom = (height + new_size) / 2
+        im = im.crop((left, top, right, bottom))
+
         if filepath:
             print(filepath)
+            os.makedirs(filepath.parent, exist_ok=True)
+            im.save(filepath)
 
-        x_offset = 70
-        width = 725 - x_offset
-        return await self.page.screenshot(
-            path=filepath,
-            clip={"x": x_offset, "y": 45, "width": width, "height": width}
-        )
+        return im

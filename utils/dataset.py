@@ -11,9 +11,9 @@ DATA_PATH = os.path.join(THIS_PATH, '..', 'data')
 
 
 class CarDataset(Dataset):
-    def __init__(self, variant=224, use_case: Literal['multi-class', 'multi-label'] = 'multi-class'):
+    def __init__(self, variant: str = '224', use_case: Literal['multi-class', 'multi-label'] = 'multi-class'):
         self.use_case = use_case
-        self.training_dir = os.path.join(DATA_PATH, str(variant))
+        self.training_dir = os.path.join(DATA_PATH, variant)
 
         self.image_paths = []
         self.classes = sorted(entry.name for entry in os.scandir(self.training_dir) if entry.is_dir())

@@ -24,7 +24,7 @@ async def main():
 
     car3d = Car3D()
     model = keras.models.load_model(
-        'models/resnet18-multi-label.keras',
+        'multi_label_classification_models/resnet18/resnet18-multi-label.keras',
         custom_objects={'ResNet18': ResNet18}
     )
     transform = torchvision.transforms.ToTensor()
@@ -33,7 +33,8 @@ async def main():
         while True:
             frame_count = 0
             start_time = time.time()
-            img = Image.open(BytesIO(await car3d.screenshot())).resize((224, 224)).convert("RGB")
+            img = await car3d.screenshot()
+            img = img.resize((224, 224)).convert("RGB")
             arr = np.array(transform(img))
             arr = arr[np.newaxis, ...]
             prediction = model.predict(arr, verbose=0)

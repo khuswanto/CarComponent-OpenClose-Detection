@@ -84,9 +84,6 @@ class ResnetBlock(Model):
 class ResNet18(Model):
 
     def __init__(self, num_classes, use_case: Literal['multi-class', 'multi-label'] = 'multi-class', **kwargs):
-        """
-            num_classes: number of classes in specific classification task.
-        """
         super().__init__(**kwargs)
         self.num_classes = num_classes
         self.use_case = use_case
