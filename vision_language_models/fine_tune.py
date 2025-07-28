@@ -5,13 +5,13 @@ from transformers import TrainingArguments, Trainer
 
 if __name__ == '__main__':
     lora_training = False
-    qlora_training = True
+    qlora_training = False
     train_ds = create_dataset()
     model = load_pretrained_model(lora_training, qlora_training)
 
     # Training Process
     training_args = TrainingArguments(
-        num_train_epochs=1,
+        # num_train_epochs=1,
         per_device_train_batch_size=4,
         gradient_accumulation_steps=4,
         warmup_steps=50,
@@ -23,7 +23,7 @@ if __name__ == '__main__':
         save_total_limit=1,
         optim="paged_adamw_8bit",  # for 8-bit, keep this, else adamw_hf
         bf16=True,  # underlying precision for 8bit
-        output_dir=f"./car-event-detection",
+        output_dir=f"./full-training",
         report_to="tensorboard",
         remove_unused_columns=False,
         gradient_checkpointing=True

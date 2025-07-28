@@ -48,13 +48,13 @@ async def main(objective: int):
 
         case 2:
             import torch
+            from transformers import AutoModelForImageTextToText
             from vision_language_models.load_model import processor
-            from transformers import AutoModelForVision2Seq
 
             device = "cuda" if torch.cuda.is_available() else "cpu"
-            model_path = THIS_PATH / 'vision_language_models' / 'car-event-detection'
+            model_path = THIS_PATH / 'vision_language_models' / 'full-training'
 
-            model = AutoModelForVision2Seq.from_pretrained(
+            model = AutoModelForImageTextToText.from_pretrained(
                 model_path,
                 torch_dtype=torch.bfloat16,
                 _attn_implementation="flash_attention_2" if device == "cuda" else "eager",
@@ -62,7 +62,7 @@ async def main(objective: int):
 
             messages = [{"role": "user", "content": [
                 {"type": "image"},
-                {"type": "text", "text": "Describe doors condition of the car?"}
+                {"type": "text", "text": "Which door is open and closed?"}
             ]}]
             prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
 

@@ -23,7 +23,7 @@ def create_dataset() -> Dataset:
             image = Image.open(fpath).convert("RGB")
             data.append({
                 'image': image,
-                'question': 'Describe doors condition of the car?',
+                'question': 'Which door is open and closed?',
                 'description': annotation[folder_name][i]
             })
 

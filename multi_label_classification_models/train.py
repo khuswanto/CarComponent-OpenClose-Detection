@@ -48,7 +48,7 @@ if __name__ == '__main__':
         model = load_model(model_dir / f'{model_name}.keras')
         last_epoch = 286  # manual set
         print(f"Continue training from {last_epoch} epoch")
-    except FileNotFoundError:
+    except ValueError:
         last_epoch = 0
         print("Model not found, creating new model")
         from multi_label_classification_models.cnn import create_model

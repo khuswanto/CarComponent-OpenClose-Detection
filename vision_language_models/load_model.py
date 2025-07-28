@@ -5,7 +5,7 @@ from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 from transformers import BitsAndBytesConfig, Idefics3ForConditionalGeneration
 
 # HuggingFaceTB/SmolVLM-Base, SmolVLM-500M-Base, SmolVLM-500M-Instruct, SmolVLM-256M-Base, SmolVLM-256M-Instruct
-model_id = "HuggingFaceTB/SmolVLM-500M-Base"
+model_id = "HuggingFaceTB/SmolVLM-500M-Instruct"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
@@ -63,21 +63,18 @@ def collate_fn(examples):
         image = example["image"]
         if image.mode != 'RGB':
             image = image.convert('RGB')
-        question = example["question"]
-        answer = example["description"]
         messages = [
             {
                 "role": "user",
                 "content": [
-                    # {"type": "text", "text": "Answer briefly."},
                     {"type": "image"},
-                    {"type": "text", "text": question}
+                    {"type": "text", "text": example["question"]}
                 ]
             },
             {
                 "role": "assistant",
                 "content": [
-                    {"type": "text", "text": answer}
+                    {"type": "text", "text": example["description"]}
                 ]
             }
         ]
@@ -92,3 +89,32 @@ def collate_fn(examples):
     batch["labels"] = labels
 
     return batch
+
+
+if __name__ == '__main__':
+    import requests
+    from io import BytesIO
+    from PIL import Image
+    from transformers import AutoModelForImageTextToText
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = AutoModelForImageTextToText.from_pretrained(
+        model_id,
+        torch_dtype=torch.bfloat16,
+        _attn_implementation="flash_attention_2" if device == "cuda" else "eager",
+    ).to(device)
+
+    messages = [{"role": "user", "content": [
+        {"type": "image"},
+        {"type": "text", "text": "Describe the image?"}
+    ]}]
+    prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
+
+    response = requests.get('https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg')
+    img = Image.open(BytesIO(response.content))
+    inputs = processor(text=prompt, images=[img], return_tensors="pt")
+    inputs = inputs.to(device)
+
+    generated_ids = model.generate(**inputs, max_new_tokens=500)
+    generated_texts = processor.batch_decode(generated_ids, skip_special_tokens=True)
+    print(generated_texts)
