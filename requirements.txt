@@ -1,10 +1,18 @@
---index-url https://download.pytorch.org/whl/cu126
+--index-url https://download.pytorch.org/whl/cu128
 --extra-index-url https://pypi.org/simple
 
 torch
 torchvision
 
+# multi-label classification
 pytest-playwright==0.7.0
 tqdm==4.67.1
 keras==3.10.0
 tensorboard==2.20.0
+
+# visual language model
+accelerate==1.9.0
+datasets==4.0.0
+peft==0.16.0
+bitsandbytes==0.46.1
+hf-xet==1.1.5

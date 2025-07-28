@@ -1,4 +1,5 @@
 import os
+import PIL.Image
 from io import BytesIO
 from enum import Enum
 from typing import AsyncIterator
@@ -7,7 +8,6 @@ from contextlib import asynccontextmanager
 
 from PIL import Image
 from playwright.async_api import async_playwright, Page
-from playwright._impl._errors import TimeoutError
 
 
 class Door(Enum):
@@ -72,7 +72,7 @@ class Car3D:
             await page.locator("button").nth(door.value).click()
         await self.hide_button()
 
-    async def screenshot(self, filepath: Path = None) -> Image:
+    async def screenshot(self, filepath: Path = None) -> PIL.Image.Image:
         new_size = 620
         im_bytes = await self.page.locator('canvas').screenshot()
         im = Image.open(BytesIO(im_bytes))

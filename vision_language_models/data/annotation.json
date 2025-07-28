@@ -1,0 +1,342 @@
+{
+    "AllClose": [
+        "All doors are firmly shut, keeping the car sealed and secure.",
+        "Every door is closed, encapsulating the vehicle in stillness.",
+        "Not a single door is ajar; the car remains tightly closed.",
+        "The car’s doors are all shut, locked in place like a fortress.",
+        "Every door, from front to rear and hood, is fully closed.",
+        "The vehicle is completely closed up with no door left open.",
+        "All doors stand closed, the car resting quietly as one unit.",
+        "There isn’t an open door; the car is entirely closed on all sides.",
+        "Each door remains closed, safeguarding the interior of the vehicle."
+    ],
+    "FrontLeft": [
+        "Only the front left door is open, inviting a driver’s entrance.",
+        "The front left door swings open, while the others remain closed.",
+        "Front left door ajar, contrasting with closed doors all around.",
+        "Just the front left door is open, the rest held tight.",
+        "The vehicle features one open door: the front left.",
+        "Front left door is open to welcome you inside, others are closed.",
+        "Only the front left door is open, all other doors stay firmly closed.",
+        "The front left door is the sole opening, the rest quietly closed.",
+        "Front left door stands open, the rest locked in place.",
+        "Car doors are all closed except the front left, which invites entry.",
+        "The front left door is propped open, while the rest remain closed."
+    ],
+    "FrontLeft-FrontRight": [
+        "Both front doors, left and right, are open for easy access inside.",
+        "Front left and front right doors are open; rear and hood remain closed.",
+        "The two front doors swing wide open while others stay shut.",
+        "Only the front left and front right doors are open, welcoming in fresh air.",
+        "Both front doors opened, revealing the car’s interior, rear plus hood closed.",
+        "The car invites entry through both front doors, leaving rear and hood closed.",
+        "Front left and front right doors gleam open, the rest remain closed.",
+        "Two front doors open simultaneously, while rear and hood doors are closed.",
+        "Front left and front right doors open wide, the car’s back doors remain shut.",
+        "Only the front left and front right doors are open, others secure and closed.",
+        "Both front doors stand open side by side, the rear and hood confined."
+    ],
+    "FrontLeft-FrontRight-Hood": [
+        "Both front doors and the hood are open, exposing interior and engine alike.",
+        "Front left and front right doors plus the hood all open in unison.",
+        "The two front doors and hood are open, while the rear doors stay closed.",
+        "Front doors left and right, along with the hood, are open simultaneously.",
+        "Car’s front left, front right doors and hood all open, inviting inspection.",
+        "Open are both front doors and the hood, leaving rear doors firmly shut.",
+        "The hood joins both front doors wide open, while rear doors are closed.",
+        "Both front doors and hood stand open, revealing the front of the vehicle.",
+        "The car is open at the hood and both front doors, with the rear securely closed."
+    ],
+    "FrontLeft-FrontRight-RearLeft": [
+        "The front left, front right, and rear left doors are all open, while the rest remain closed.",
+        "Only the front two doors on the left and right, along with the rear left door, are open today.",
+        "The trio of front left, front right, and rear left doors swing wide open; the hood and rear right stay shut.",
+        "Open doors include the front left, front right, and rear left, creating a welcoming path around the car.",
+        "Three doors—front left, front right, and rear left—rest open as the others remain firmly closed.",
+        "The car shows the front left, front right, and rear left doors ajar, with only the rear right and hood closed.",
+        "Wide open are the front left, front right, and rear left doors; the remainder hold tight.",
+        "With front left, front right, and rear left doors opened, the rest of the vehicle is closed up.",
+        "The front left, front right, and rear left doors catch the breeze while hood and rear right stay sealed.",
+        "Only the front left, front right, and rear left doors are open; everything else remains shut."
+    ],
+    "FrontLeft-FrontRight-RearLeft-Hood": [
+        "All doors except the rear right are open, including the hood, ready for inspection.",
+        "The front left, front right, rear left doors, and hood stand open, leaving only the rear right closed.",
+        "With the hood and three doors—front left, front right, and rear left—all wide open, the car is fully inviting except for the rear right door.",
+        "Open doors and hood include front left, front right, and rear left; rear right stays closed.",
+        "The car is opened up with front left, front right, rear left doors and the hood ajar.",
+        "The hood along with the front left, front right, and rear left doors are all open, sealed only by the rear right door.",
+        "Hood plus front left, front right, and rear left doors reveal the interior, leaving only rear right closed.",
+        "Front left, front right, rear left doors, and the hood are open; rear right door is closed tight.",
+        "An open hood and three doors—front left, front right, rear left—give a glimpse inside, with rear right closed.",
+        "Hood and the trio of front left, front right, and rear left doors are all open, sealing the rear right alone."
+    ],
+    "FrontLeft-FrontRight-RearLeft-RearRight": [
+        "Every door on the side of the car is open, from front left to rear right, with the hood closed.",
+        "Open are all four passenger doors—front left, front right, rear left, and rear right, while the hood stays shut.",
+        "The car’s passenger side is fully open with both front and rear doors on left and right wide open, hood closed.",
+        "A welcoming scene with front left, front right, rear left, and rear right doors wide open; only the hood remains closed.",
+        "All four passenger doors swing open, creating a clear passage, hood is the only door closed.",
+        "Four doors are open—front left, front right, rear left, and rear right—while the hood stays closed.",
+        "Open doors include both front and rear doors on either side, with the hood remaining shut.",
+        "The car is open on all four passenger doors; the hood stays firmly shut.",
+        "Front left, front right, rear left, and rear right doors all open wide; hood closed tight.",
+        "Aside from the hood, all passenger doors—front left, front right, rear left, rear right—are open."
+    ],
+    "FrontLeft-FrontRight-RearLeft-RearRight-Hood": [
+        "All five doors—front left, front right, rear left, rear right, and hood—are wide open, inviting exploration.",
+        "A perfect openness: the hood and all side doors front and rear swing wide open.",
+        "Every entry point, including the hood, is unlocked and open—front left, front right, rear left, rear right, and hood.",
+        "The car stands with all doors and hood open, a complete invitation inside and out.",
+        "Nothing is closed; hood and all four doors are wide open.",
+        "Full exposure with front left, front right, rear left, rear right, and hood all open.",
+        "Every door and the hood are open, leaving no part closed.",
+        "Open for business: the hood and all four side doors are wide open.",
+        "The vehicle is fully open—doors and hood alike—all inviting entry."
+    ],
+    "FrontLeft-FrontRight-RearRight": [
+        "Only the front left, front right, and rear right doors are open, sealing off the rear left and hood.",
+        "A trio of open doors—front left, front right, and rear right—stand ajar, with rear left and hood closed.",
+        "With front left, front right, and rear right doors open, the vehicle remains closed on rear left and hood.",
+        "The car opens on the front left, front right, and rear right doors; rear left and hood stay shut.",
+        "Open are the front left, front right, and rear right doors, keeping rear left and hood tightly closed.",
+        "The front doors and rear right door invite entry, while rear left and hood remain firmly shut.",
+        "Front left, front right, and rear right doors alone open, with the rest closed.",
+        "Doors open include front left, front right, and rear right; rear left and hood remain closed.",
+        "Only the front corners and rear right door open; rear left door and hood stay shut.",
+        "Three doors—front left, front right, and rear right—opened, stopping short of the hood and rear left door."
+    ],
+    "FrontLeft-FrontRight-RearRight-Hood": [
+        "Open are the front left, front right, rear right doors, and the hood, sealing only the rear left door.",
+        "The car shows the hood wide open alongside the front left, front right, and rear right doors, while rear left remains closed.",
+        "With front left, front right, and rear right doors plus the hood open, only the rear left door remains closed.",
+        "Hood and three doors—front left, front right, and rear right—are open, leaving rear left closed.",
+        "Front left, front right, rear right doors and the hood swing open; the rear left door stays shut.",
+        "A combination of open doors and hood: front left, front right, rear right doors and the hood, with rear left closed.",
+        "The hood stands open along with front left, front right, and rear right doors; only rear left remains closed.",
+        "Open doors include front left, front right, rear right, plus the hood, with rear left firmly closed.",
+        "Hood and three doors on the left and right sides—front left, front right, rear right—are open while rear left is closed."
+    ],
+    "FrontLeft-Hood": [
+        "The front left door and the hood are open, while the rest remain closed.",
+        "Only the front left door and hood swing wide open; all others stay shut tight.",
+        "Both the front left door and hood stand ajar; the remaining doors are firmly closed.",
+        "The car reveals its front left door and hood open, with the other doors sealed.",
+        "Front left door and hood open, the rest of the doors remain closed and secure.",
+        "Just the front left door and hood are open, everything else is closed up.",
+        "The front left and hood doors invite you in; all other doors stay closed.",
+        "Front left door and hood are swung open, while the others stay tucked in.",
+        "With front left door and hood open, the car shows a taste of its interior.",
+        "Only the front left door and hood are unlocked and open; the rest remain closed."
+    ],
+    "FrontLeft-RearLeft": [
+        "Both front left and rear left doors are open, while the front right, rear right, and hood are closed.",
+        "The car’s left side reveals open front and rear doors; everything else stays closed.",
+        "Front left and rear left doors stand ajar, the rest are tightly shut.",
+        "Only the front left and rear left doors are open, keeping the vehicle accessible from the left side.",
+        "The left side of the car is open with both front and rear doors unlocked; other doors remain closed.",
+        "With front left and rear left doors swung wide, the rest of the car doors stay closed.",
+        "Front and rear left doors open simultaneously; the right side and hood remain sealed.",
+        "Front left and rear left doors create a left-side passage, while the others stay shut.",
+        "The car's left flank is open through front and rear doors, leaving the rest closed.",
+        "Only the left front and rear doors are open; all remaining doors remain firmly closed."
+    ],
+    "FrontLeft-RearLeft-Hood": [
+        "The front left door, rear left door, and hood are all open, the others remain closed.",
+        "Hood and both left-side doors are swung open; the right side stays closed tight.",
+        "Front left, rear left doors, and the hood invite air in, leaving the rest securely closed.",
+        "Open are the front left and rear left doors along with the hood, while all others are shut.",
+        "Both left doors and the hood are open, giving a welcoming view; the right side stays closed.",
+        "The left front and rear doors along with the hood are open; the car’s right side is shut.",
+        "With front left, rear left doors, and hood open, the vehicle is accessible from left plus hood space.",
+        "The car sports open hood and left front and rear doors, the rest stay closed.",
+        "Door openings include front left, rear left, and hood, as all others remain locked tight.",
+        "Only the hood and both left side doors are open, while the rest are closed."
+    ],
+    "FrontLeft-RearLeft-RearRight": [
+        "Front left, rear left, and rear right doors are all open while the front right and hood remain closed.",
+        "The car’s rear and left doors are open except the front right and hood which stay shut.",
+        "Both left doors and the rear right door invite you in; the front right and hood doors remain closed.",
+        "Open are the front left, rear left, and rear right doors while front right and hood are closed.",
+        "The car shows open doors on front left, both rear sides, and closed front right and hood.",
+        "Front left, rear left, and rear right doors stand open as the front right and hood remain secure.",
+        "Left front and rear doors plus the rear right door are open, while front right and hood stay shut.",
+        "Open doors include front left and both rear doors, all others stay tightly closed.",
+        "The front left door together with both rear side doors are open; the rest remain closed."
+    ],
+    "FrontLeft-RearLeft-RearRight-Hood": [
+        "Front left, rear left, rear right doors and the hood are all open; the front right door remains closed.",
+        "With all doors except front right wide open, including the hood, the car is exposed.",
+        "The car is open through the hood, front left, and both rear doors; only the front right door stays closed.",
+        "Open are the front left and both rear doors plus the hood, while the front right door remains shut.",
+        "The hood and the three doors on front left and both rears are open, the front right door stays closed.",
+        "Front left, rear left, rear right doors and hood are swung wide open; the front right door is closed."
+    ],
+    "FrontLeft-RearRight": [
+        "The front left and rear right doors are open, while the other doors including hood stay closed.",
+        "Open doors are the front left and rear right, the rest remain firmly shut.",
+        "Only the front left and the rear right doors are open, leaving the rest closed.",
+        "Both front left and rear right doors stand open, all other doors including the hood stay closed.",
+        "Front left and rear right doors swing wide open; all the others stay closed tight.",
+        "With front left and rear right doors open, the rest including hood remain closed.",
+        "The car shows open front left and rear right doors but closed hood, front right, and rear left doors.",
+        "Only the doors on front left and rear right are open, while the rest stay shut.",
+        "The two diagonally opposite doors, front left and rear right, are open; the rest remain closed."
+    ],
+    "FrontLeft-RearRight-Hood": [
+        "The hood, front left, and rear right doors are open; all other doors remain closed.",
+        "Open are the hood, front left, and rear right doors, while the rest stay shut tight.",
+        "The car displays an open hood with front left and rear right doors ajar; others are closed.",
+        "Front left, rear right doors and the hood are all open, leaving the others closed.",
+        "Only the hood and the doors at front left and rear right are open; rest remain closed.",
+        "Hood plus front left and rear right doors are swung open; other doors stay closed.",
+        "The hood along with front left and rear right doors stand open, the rest are shut.",
+        "Open doors include the hood and those on front left and rear right; others remain firmly closed."
+    ],
+    "FrontRight": [
+        "Only the front right door is open while the rest remain shut.",
+        "The car’s front right door is wide open, all other doors are closed tight.",
+        "Front right door stands open, with every other door firmly closed.",
+        "Only one door swings open—the front right; the rest stay closed.",
+        "The front right door is the sole gateway left open; the others stay locked down.",
+        "The vehicle welcomes you through its open front right door, keeping all other doors closed.",
+        "Of all five doors, just the front right is open, the rest are closed.",
+        "Front right door open, making entry easy; the other doors hold their ground shut.",
+        "All doors are closed except the inviting front right door which is open."
+    ],
+    "FrontRight-Hood": [
+        "Both the front right door and the hood are open, while all other doors remain closed.",
+        "Front right door and hood stand open; the rest of the car’s doors are closed tight.",
+        "The car’s front right door and hood are open together, every other door is shut.",
+        "Open front right door and hood reveal what's inside, with remaining doors closed.",
+        "Only the front right door and hood are open, the others hold closed.",
+        "The front right door and hood show open entry points; remaining doors are closed.",
+        "Front right door and hood open in tandem, all other doors closed securely.",
+        "The hood and front right door are open, while every other door stays closed."
+    ],
+    "FrontRight-RearLeft": [
+        "The front right and rear left doors are open, while the other doors stay firmly shut.",
+        "Open front right and rear left doors welcome you in; all other doors remain closed.",
+        "The car’s front right and rear left doors stand open, with the rest closed tight.",
+        "Only the front right and rear left doors are open; all others are closed.",
+        "Front right and rear left doors open wide, the remaining doors stay shut.",
+        "The vehicle shows two open doors — front right and rear left — all others closed.",
+        "Front right with rear left doors open, while front left, rear right, and hood stay closed.",
+        "Open doors front right and rear left, locking down every other entry point."
+    ],
+    "FrontRight-RearLeft-Hood": [
+        "The front right door, rear left door, and hood are all open while the other doors remain closed.",
+        "Three openings—front right door, rear left door, and hood—invite entry; rest stay shut.",
+        "Open front right and rear left doors along with the hood, all others closed.",
+        "The vehicle’s front right and rear left doors plus the hood are open; every other door is closed.",
+        "Front right door, rear left door, and hood open together, locking down only front left and rear right doors.",
+        "With the front right and rear left doors alongside the hood open, the remaining doors are closed.",
+        "The car has the front right and rear left doors plus the hood open, sealing the rest."
+    ],
+    "FrontRight-RearLeft-RearRight": [
+        "The front right, rear left, and rear right doors are all wide open, with front left and hood closed.",
+        "Three doors—the front right and both rear doors—are open, the hood and front left door stay shut.",
+        "With front right, rear left, and rear right doors open, the car’s front left door and hood remain closed.",
+        "Only the front right, rear left, and rear right doors are open; other doors stay closed.",
+        "The vehicle has its front right door and both rear doors open, the hood and front left door remain locked.",
+        "Open doors front right, rear left, and rear right, with front left and hood sealed tight.",
+        "Three doors open together: front right, rear left, and rear right; all others closed.",
+        "Front right and both rear doors open, hood and front left door remain closed."
+    ],
+    "FrontRight-RearLeft-RearRight-Hood": [
+        "The front right, rear left, rear right doors and hood are open with only the front left door closed.",
+        "Almost all entrances are open except for the front left door—the front right, both rears, and hood stand wide open.",
+        "Open doors include front right, rear left, rear right and hood; the front left door remains closed.",
+        "Four openings—front right, rear left, rear right doors and hood—with front left door locked tight.",
+        "The hood plus front right and both rear doors are open; only the front left door is shut.",
+        "Front right, rear left, rear right doors and hood swing open while front left door stays closed.",
+        "All but the front left door are open—the hood, front right, rear left, and rear right doors."
+    ],
+    "FrontRight-RearRight": [
+        "The front right and rear right doors are open, leaving front left, rear left, and hood closed.",
+        "Only the doors on the right side—front and rear—are open; all others remain shut.",
+        "The front right and rear right doors swing open, and every other door is closed.",
+        "Open are the front right and rear right doors, while front left, rear left, and hood stay closed.",
+        "Right side doors front and rear open wide; the rest of the doors hold closed.",
+        "With both right-hand doors open, the hood and left side doors remain closed.",
+        "Front right and rear right doors open together while the remaining doors stay locked."
+    ],
+    "FrontRight-RearRight-Hood": [
+        "The front right and rear right doors along with the hood are open; all other doors remain closed.",
+        "Open are the two right side doors and the hood, while front left and rear left doors stay shut.",
+        "The hood with front right and rear right doors open, and the remaining doors closed.",
+        "Front right, rear right doors and hood are open simultaneously, all other doors closed.",
+        "Only the right side doors and hood are open; the rest stay firmly closed.",
+        "Doors open: front right, rear right, and hood; front left and rear left are closed.",
+        "The car’s open points include front right door, rear right door, and hood, with left side doors closed."
+    ],
+    "Hood": [
+        "Only the hood is open, while all four passenger doors remain securely closed.",
+        "The front doors and rear doors are shut tight as the hood swings open.",
+        "Just the hood is lifted, with every passenger door firmly closed.",
+        "All four doors are closed except for the hood, which is wide open.",
+        "The car sits with the hood popped open, all doors locked down.",
+        "Only the hood stands open, forming a gateway to the engine bay while other doors are closed.",
+        "The vehicle shows off an open hood while the front and rear doors stay closed.",
+        "All doors hold fast in their closed positions, save for the hood, which reveals the engine compartment."
+    ],
+    "RearLeft": [
+        "The rear left door is ajar, while the front left, front right, rear right doors, and hood remain shut.",
+        "Only the rear left door swings open, leaving the rest securely closed.",
+        "The back left door is open, with every other door sealed tight.",
+        "As the rear left door opens, all other doors, including the hood, stay latched.",
+        "The rear left door is the only one welcoming fresh air, the rest are firmly closed.",
+        "Just the rear left door stands open; the others, including the hood, hold fast.",
+        "Only the rear left door lets in the breeze, with all others closed."
+    ],
+    "RearLeft-Hood": [
+        "Both the rear left door and the hood are open, while all other doors remain closed.",
+        "The left rear door and the hood stand wide open, the rest stay shut tight.",
+        "With the rear left door and hood swung open, the remaining doors stay sealed.",
+        "Only the rear left door and the hood open, all other doors remain firmly closed.",
+        "The car reveals its interior through an open rear left door and hood, while other doors remain closed.",
+        "Rear left door and hood open together, the rest of the doors stay locked.",
+        "An open rear left door and hood invite a peek inside, with all other doors closed.",
+        "The rear left door and hood open side by side, every other door quietly shut.",
+        "While the rear left door and the hood are open, the front doors and rear right door remain closed."
+    ],
+    "RearLeft-RearRight": [
+        "Both rear doors are open, with front doors and hood carefully closed.",
+        "The back left and right doors swing wide open while all others remain shut.",
+        "Rear left and rear right doors are ajar, the rest stay closed tight.",
+        "Only the rear doors open to the outside world, the front doors and hood firmly closed.",
+        "Back doors on both sides open, while the hood and front doors remain latched.",
+        "The rear left and rear right doors invite entry, the hood and front doors stay secure.",
+        "Both rear doors are open simultaneously, with the front doors and hood closed.",
+        "With both rear doors swinging open, all else remains closed and calm.",
+        "Rear left and rear right doors are pulled open, the hood and front doors remain shut."
+    ],
+    "RearLeft-RearRight-Hood": [
+        "The hood and both rear doors are open, while the front doors remain firmly closed.",
+        "Both rear doors and the hood stand open, every other door closed tight.",
+        "Open hood and rear doors on both sides, the front doors keep quiet and shut.",
+        "Rear left, rear right, and hood are open, front doors tightened closed.",
+        "The car invites through open hood and rear doors, with front doors sealed.",
+        "Hood and both rear doors open wide, front doors remain locked in place.",
+        "Rear left and right doors, along with the hood, are open while front doors are closed."
+    ],
+    "RearRight": [
+        "The rear right door is open with all other doors, including the hood, shut tight.",
+        "Only the rear right door welcomes entry, all other doors remain closed.",
+        "Rear right door ajar, while the front doors, rear left door, and hood stay closed.",
+        "Just the rear right door opens, the rest of the doors stay secured.",
+        "The back right door beckons open while all others remain tightly closed.",
+        "Rear right door is the sole open gateway, the others maintain their closed stance.",
+        "With the rear right door open, all else including the hood stays closed."
+    ],
+    "RearRight-Hood": [
+        "Both the rear right door and the hood are open, while all other doors stay closed.",
+        "Open hood and rear right door, with the rest of the doors firmly shut.",
+        "The rear right door and hood display openness, the remaining doors are closed.",
+        "Only the rear right door and hood part ways, every other door stays latched.",
+        "Rear right door and hood both open, the front left and rear left doors remain closed.",
+        "The car has its hood and rear right door open, while other doors stay locked.",
+        "With rear right door and hood open, other doors including front doors remain shut.",
+        "Hood and rear right door open together, all other doors remain closed."
+    ]
+}

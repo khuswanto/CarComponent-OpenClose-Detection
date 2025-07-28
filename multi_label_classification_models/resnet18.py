@@ -7,6 +7,7 @@ Reference:
 Surpassing human-level performance on imagenet classification. In
 ICCV, 2015.
 """
+import keras
 import torch
 
 from typing import Literal
@@ -14,6 +15,7 @@ from keras import Model
 from keras.layers import Dense, Conv2D,  MaxPool2D, Flatten, GlobalAveragePooling2D,  BatchNormalization, Add, ReLU
 
 
+@keras.saving.register_keras_serializable()
 class ResnetBlock(Model):
     """
     A standard resnet block.
@@ -81,9 +83,10 @@ class ResnetBlock(Model):
         return batch, new_channels, new_height, new_width
 
 
+@keras.saving.register_keras_serializable()
 class ResNet18(Model):
 
-    def __init__(self, num_classes, use_case: Literal['multi-class', 'multi-label'] = 'multi-class', **kwargs):
+    def __init__(self, num_classes, use_case: Literal['multi-class', 'multi-label'] = 'multi-label', **kwargs):
         super().__init__(**kwargs)
         self.num_classes = num_classes
         self.use_case = use_case

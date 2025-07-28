@@ -3,13 +3,16 @@ from pathlib import Path, WindowsPath
 from PIL import Image
 
 THIS_PATH = Path(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = THIS_PATH / '..' / 'data'
 
 
+source = 'dark'
+target = 'dark-224'
 dim = 224
-for file in (THIS_PATH / "800").glob('**/*.png'):  # type: WindowsPath
+for file in (DATA_PATH / source).glob('**/*.png'):  # type: WindowsPath
     print(file)
     parts = list(file.parts)
-    parts[-3] = str(dim)
+    parts[-3] = target
     new_path = Path(*parts)
     os.makedirs(new_path.parent, exist_ok=True)
     im = Image.open(file)

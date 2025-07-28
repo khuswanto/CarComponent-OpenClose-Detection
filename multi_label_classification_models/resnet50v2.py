@@ -1,8 +1,10 @@
 import torch
+import keras
 from keras import Model
 from keras.layers import Dense, Conv2D, MaxPool2D, Flatten, GlobalAveragePooling2D, BatchNormalization, Add, ReLU, Input
 
 
+@keras.saving.register_keras_serializable()
 class ResnetV2Bottleneck(Model):
     """
     Replace basic blocks with Bottleneck blocks (using three convolutions per block: 1x1, 3x3, 1x1).
@@ -56,8 +58,9 @@ class ResnetV2Bottleneck(Model):
         self.built = True
 
 
+@keras.saving.register_keras_serializable()
 class ResNet50V2(Model):
-    def __init__(self, num_classes, use_case='multi-class', **kwargs):
+    def __init__(self, num_classes, use_case='multi-label', **kwargs):
         super().__init__(**kwargs)
         self.num_classes = num_classes
         self.use_case = use_case

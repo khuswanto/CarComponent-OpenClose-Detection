@@ -2,9 +2,11 @@ import os
 os.environ["KERAS_BACKEND"] = "torch"
 
 import torch
+import keras
 from keras.metrics import BinaryAccuracy
 
 
+@keras.saving.register_keras_serializable()
 class HammingLoss(BinaryAccuracy):
     def __init__(self, threshold=0.5, name="hamming_loss", **kwargs):
         super().__init__(name=name, **kwargs)

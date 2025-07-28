@@ -6,6 +6,7 @@ from itertools import combinations
 from utils.car3d import Car3D, Door
 
 THIS_PATH = Path(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = THIS_PATH / '..' / 'data'
 
 
 class DataGenerator:
@@ -25,7 +26,7 @@ class DataGenerator:
             y = start_y + (end_y - start_y) * x_step / x_steps
             await page.mouse.move(x, y)
             await asyncio.sleep(delay / 1000)
-            filepath = THIS_PATH / car3d.variant / prefix / f"{y_step}-{x_step}.png"
+            filepath = DATA_PATH / car3d.variant / prefix / f"{y_step}-{x_step}.png"
             await car3d.screenshot(filepath=filepath)
 
         await page.mouse.up()
@@ -39,7 +40,7 @@ class DataGenerator:
                 command = input("$ ")
                 match command:
                     case "ss":
-                        await car3d.screenshot(filepath=THIS_PATH / "example.png")
+                        await car3d.screenshot(filepath=DATA_PATH / "example.png")
 
                     case "scan":
                         for n in range(0, len(Door.__members__) + 1):

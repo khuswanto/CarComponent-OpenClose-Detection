@@ -1,11 +1,11 @@
-import os
+from pathlib import Path
 from torch.utils.tensorboard import SummaryWriter
 from keras.callbacks import Callback
 from keras.src import backend, ops
 
 
 class TorchTensorBoard(Callback):
-    def __init__(self, log_dir: str = 'logs', write_images: bool = False):
+    def __init__(self, log_dir: Path, write_images: bool = False):
         super().__init__()
         self.log_dir = log_dir
         self.writers: dict = {}
@@ -13,7 +13,7 @@ class TorchTensorBoard(Callback):
 
     def _get_writer(self, name) -> SummaryWriter:
         if name not in self.writers:
-            self.writers[name] = SummaryWriter(os.path.join(self.log_dir, name))
+            self.writers[name] = SummaryWriter(self.log_dir / name)
         return self.writers[name]
 
     def _log_epoch_metrics(self, writer_name, logs, step):
