@@ -4,8 +4,10 @@ from transformers import TrainingArguments, Trainer
 
 
 if __name__ == '__main__':
+    lora_training = False
+    qlora_training = True
     train_ds = create_dataset()
-    model = load_pretrained_model()
+    model = load_pretrained_model(lora_training, qlora_training)
 
     # Training Process
     training_args = TrainingArguments(
@@ -33,3 +35,4 @@ if __name__ == '__main__':
         train_dataset=train_ds,
     )
     trainer.train()
+    trainer.save_model()

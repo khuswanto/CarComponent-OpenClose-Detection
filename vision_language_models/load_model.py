@@ -14,14 +14,14 @@ image_token_id = processor.tokenizer.additional_special_tokens_ids[
     processor.tokenizer.additional_special_tokens.index("<image>")]
 
 
-def load_pretrained_model(use_lora: bool = False, use_qlora: bool = True):
-    if use_qlora or use_lora:
+def load_pretrained_model(lora_training: bool = False, qlora_training: bool = True):
+    if lora_training or qlora_training:
         lora_config = LoraConfig(
             r=8,
             lora_alpha=8,
             lora_dropout=0.1,
             target_modules=['down_proj', 'o_proj', 'k_proj', 'q_proj', 'gate_proj', 'up_proj', 'v_proj'],
-            use_dora=not use_qlora,
+            use_dora=not qlora_training,
             init_lora_weights="gaussian"
         )
         lora_config.inference_mode = False
@@ -32,7 +32,7 @@ def load_pretrained_model(use_lora: bool = False, use_qlora: bool = True):
                 bnb_4bit_use_double_quant=True,
                 bnb_4bit_quant_type="nf4",
                 bnb_4bit_compute_dtype=torch.bfloat16
-            ) if use_qlora else None,
+            ) if qlora_training else None,
             _attn_implementation="flash_attention_2",
             device_map="auto"
         )
@@ -63,7 +63,7 @@ def collate_fn(examples):
         image = example["image"]
         if image.mode != 'RGB':
             image = image.convert('RGB')
-        # question = example["question"]
+        question = example["question"]
         answer = example["description"]
         messages = [
             {
@@ -71,7 +71,7 @@ def collate_fn(examples):
                 "content": [
                     # {"type": "text", "text": "Answer briefly."},
                     {"type": "image"},
-                    # {"type": "text", "text": question}
+                    {"type": "text", "text": question}
                 ]
             },
             {
