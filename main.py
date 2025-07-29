@@ -14,13 +14,14 @@ async def main(objective: int):
     match objective:
         case 1:
             os.environ["KERAS_BACKEND"] = "torch"
-
+            from keras import backend
+            backend.set_image_data_format('channels_first')
             import numpy as np
             import torchvision
             from keras.models import load_model
             from multi_label_classification_models.car_dataset import CarDataset
 
-            model_name = "cnn"
+            model_name = "cnn-2"
             model_dir = THIS_PATH / 'multi_label_classification_models' / model_name / 'models'
             model = load_model(model_dir / f'{model_name}.keras')
             transform = torchvision.transforms.ToTensor()
@@ -41,7 +42,7 @@ async def main(objective: int):
 
                     elapsed = time() - start_time
                     print(
-                        # f"{CLEAR_LINE}"
+                        f"{CLEAR_LINE}"
                         f"{(1 / elapsed) if elapsed else 0 :.2f} it/s - "
                         f"{' | '.join(idx2class[i] for i, pred in enumerate(prediction) if pred)}"
                     )
@@ -84,4 +85,4 @@ async def main(objective: int):
 
 
 if __name__ == '__main__':
-    asyncio.run(main(2))
+    asyncio.run(main(1))

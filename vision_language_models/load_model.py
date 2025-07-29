@@ -5,7 +5,8 @@ from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 from transformers import BitsAndBytesConfig, Idefics3ForConditionalGeneration
 
 # HuggingFaceTB/SmolVLM-Base, SmolVLM-500M-Base, SmolVLM-500M-Instruct, SmolVLM-256M-Base, SmolVLM-256M-Instruct
-model_id = "HuggingFaceTB/SmolVLM-500M-Instruct"
+# model_id = "HuggingFaceTB/SmolVLM-500M-Instruct"
+model_id = "HuggingFaceTB/SmolVLM-Instruct"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 

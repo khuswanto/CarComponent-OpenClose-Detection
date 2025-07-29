@@ -11,7 +11,7 @@ DATA_PATH = os.path.join(THIS_PATH, '..', 'data')
 
 
 class CarDataset(Dataset):
-    def __init__(self, variants: tuple[str, ...] = ('white-224', 'dark-224'), use_case: Literal['multi-class', 'multi-label'] = 'multi-class'):
+    def __init__(self, variants: tuple[str, ...] = ('white-224', 'dark-224'), use_case: Literal['multi-class', 'multi-label'] = 'multi-label'):
         self.use_case = use_case
         self.image_paths = []
         for i, variant in enumerate(variants):

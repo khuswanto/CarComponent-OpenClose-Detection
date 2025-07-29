@@ -1,37 +1,22 @@
 from keras import Sequential
-from keras.layers import Dense, Dropout, Conv2D, Flatten, BatchNormalization, MaxPooling2D
+from keras.layers import Dense, Dropout, Conv2D, Flatten, MaxPooling2D
 
 
 def create_model(small=True):
     model = Sequential()
 
-    model.add(Conv2D(filters=16, kernel_size=(3, 3), activation="relu", data_format="channels_first"))
-    model.add(BatchNormalization())
-    model.add(MaxPooling2D(pool_size=(2, 2), data_format="channels_first"))
-    model.add(Dropout(0.2))
+    model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(3, 224, 224)))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
 
-    model.add(Conv2D(filters=32, kernel_size=(3, 3), activation='relu', data_format="channels_first"))
-    model.add(MaxPooling2D(pool_size=(2, 2), data_format="channels_first"))
-    model.add(BatchNormalization())
-    model.add(Dropout(0.2))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
 
-    model.add(Conv2D(filters=64, kernel_size=(3, 3), activation="relu", data_format="channels_first"))
-    model.add(MaxPooling2D(pool_size=(2, 2), data_format="channels_first"))
-    model.add(BatchNormalization())
-    model.add(Dropout(0.2))
-
-    if not small:
-        model.add(Conv2D(filters=64, kernel_size=(3, 3), activation='relu', data_format="channels_first"))
-        model.add(MaxPooling2D(pool_size=(2, 2), data_format="channels_first"))
-        model.add(BatchNormalization())
-        model.add(Dropout(0.2))
+    model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
 
     model.add(Flatten())
-    if not small:
-        model.add(Dense(128, activation='relu'))
-        model.add(Dropout(0.5))
-    model.add(Dense(64, activation='relu'))
+
+    model.add(Dense(128, activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(5, activation='sigmoid'))
-
     return model

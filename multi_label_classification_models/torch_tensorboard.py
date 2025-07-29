@@ -1,3 +1,6 @@
+import numpy as np
+import torch
+
 from pathlib import Path
 from torch.utils.tensorboard import SummaryWriter
 from keras.callbacks import Callback
@@ -22,30 +25,45 @@ class TorchTensorBoard(Callback):
             writer.add_scalar(key, value, step)
 
     def _log_weight_as_image(self, writer_name, weight, weight_name, epoch):
-        """Logs a weight as a TensorBoard image."""
         w_img = ops.squeeze(weight)
-        shape = w_img.shape
-        if len(shape) == 1:  # Bias case
-            w_img = ops.reshape(w_img, [1, shape[0], 1, 1])
-        elif len(shape) == 2:  # Dense layer kernel case
-            if shape[0] > shape[1]:
-                w_img = ops.transpose(w_img)
-                shape = w_img.shape
-            w_img = ops.reshape(w_img, [1, shape[0], shape[1], 1])
-        elif len(shape) == 3:  # ConvNet case
-            if backend.image_data_format() == "channels_last":
-                # Switch to channels_first to display every kernel as a separate
-                # image.
-                w_img = ops.transpose(w_img, [2, 0, 1])
-                shape = w_img.shape
-            w_img = ops.reshape(w_img, [shape[0], shape[1], shape[2], 1])
+        # Detach, move to CPU, then convert to numpy:
+        if isinstance(w_img, torch.Tensor):
+            w_img = w_img.detach().cpu().numpy()
 
-        w_img = backend.convert_to_numpy(w_img)
         shape = w_img.shape
-        # Not possible to handle 3D convnets etc.
-        if len(shape) == 4 and shape[1] in [1, 3, 4]:
-            writer = self._get_writer(writer_name)
-            writer.add_image(weight_name, w_img, epoch, dataformats='NCHW')
+
+        if len(shape) == 1:
+            length = shape[0]
+            size = int(np.ceil(np.sqrt(length)))
+            img = np.zeros((size, size), dtype=w_img.dtype)
+            img.flat[:length] = w_img
+            img = img[np.newaxis, :, :]  # Add channel dim
+
+        elif len(shape) == 2:
+            img = w_img
+            if shape[0] > shape[1]:
+                img = img.T
+            img = img[np.newaxis, :, :]  # Add channel dim
+
+        elif len(shape) == 3:
+            if backend.image_data_format() == "channels_last":
+                img = np.transpose(w_img, (2, 0, 1))
+            else:
+                img = w_img
+        else:
+            return  # Unsupported shape for image logging
+
+        # Convert to torch tensor for tensorboard logging
+        img_tensor = torch.tensor(img, dtype=torch.float32)
+
+        # Normalize image between 0 and 1
+        img_tensor = (img_tensor - img_tensor.min()) / (img_tensor.max() - img_tensor.min() + 1e-5)
+
+        writer = self._get_writer(writer_name)
+        if img_tensor.dim() == 3:
+            writer.add_image(weight_name, img_tensor, epoch)
+        elif img_tensor.dim() == 4:
+            writer.add_images(weight_name, img_tensor, epoch)
 
     def _log_weights(self, writer_name, train_logs, epoch):
         """Logs the weights of the Model to TensorBoard."""

@@ -1,10 +1,12 @@
 import os
 os.environ["KERAS_BACKEND"] = "torch"
 
+from keras import backend
+backend.set_image_data_format('channels_first')
+
 import json
 from pathlib import Path
-from torch.utils.data import DataLoader
-from torch.utils.data import Subset
+from torch.utils.data import DataLoader, Subset, random_split
 from keras.models import load_model
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 
@@ -19,6 +21,8 @@ if __name__ == '__main__':
     dataset = CarDataset(variants=('white-224', 'dark-224'), use_case='multi-label')
     batch_size = 64
     proportions = [.64, .16, .20]
+
+    # train_dataset, val_dataset, test_dataset = random_split(dataset, proportions)
 
     # split by turn
     train_idx, val_idx, test_idx = [], [], []
@@ -42,7 +46,7 @@ if __name__ == '__main__':
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
     val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
 
-    model_name = "cnn-2"
+    model_name = "cnn-3"
     model_dir = THIS_PATH / model_name / 'models'
     try:
         model = load_model(model_dir / f'{model_name}.keras')
@@ -53,7 +57,7 @@ if __name__ == '__main__':
         print("Model not found, creating new model")
         from multi_label_classification_models.cnn import create_model
 
-        model = create_model(small=False)
+        model = create_model(small=True)
         model.build(input_shape=(None, 3, 224, 224))
         model.compile(
             loss='binary_crossentropy',
@@ -71,7 +75,7 @@ if __name__ == '__main__':
         validation_data=val_dataloader,
         batch_size=batch_size,
         initial_epoch=last_epoch,
-        epochs=1000,
+        epochs=500,
         callbacks=[
             TorchTensorBoard(THIS_PATH / model_name / 'logs', write_images=True),
             ModelCheckpoint(
@@ -79,7 +83,7 @@ if __name__ == '__main__':
                 save_best_only=True,
                 save_weights_only=False
             ),
-            EarlyStopping(patience=20)
+            EarlyStopping(patience=10)
         ]
     )
     os.makedirs(model_dir, exist_ok=True)
