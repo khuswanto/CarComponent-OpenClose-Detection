@@ -50,7 +50,7 @@ if __name__ == '__main__':
     model_dir = THIS_PATH / model_name / 'models'
     try:
         model = load_model(model_dir / f'{model_name}.keras')
-        last_epoch = 286  # manual set
+        last_epoch = 107  # manual set
         print(f"Continue training from {last_epoch} epoch")
     except ValueError:
         last_epoch = 0
@@ -77,17 +77,18 @@ if __name__ == '__main__':
         initial_epoch=last_epoch,
         epochs=500,
         callbacks=[
-            TorchTensorBoard(THIS_PATH / model_name / 'logs', write_images=True),
+            TorchTensorBoard(
+                THIS_PATH / model_name / 'logs',
+                write_images=True
+            ),
             ModelCheckpoint(
                 THIS_PATH / model_name / 'ckpt' / f'{model_name}.keras',
                 save_best_only=True,
                 save_weights_only=False
             ),
-            EarlyStopping(patience=10)
+            EarlyStopping(patience=20)
         ]
     )
-    os.makedirs(model_dir, exist_ok=True)
-    model.save(model_dir / f'{model_name}.keras')
 
     # evaluation
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, pin_memory=True)

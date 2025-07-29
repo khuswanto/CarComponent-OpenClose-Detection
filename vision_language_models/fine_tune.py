@@ -1,4 +1,4 @@
-from create_datasets import create_dataset
+from vlm_dataset import create_dataset
 from load_model import load_pretrained_model, collate_fn
 from transformers import TrainingArguments, Trainer
 
@@ -6,12 +6,13 @@ from transformers import TrainingArguments, Trainer
 if __name__ == '__main__':
     lora_training = False
     qlora_training = True
-    train_ds = create_dataset()
+    dirname = 'SmolVLM-Instruct-qlora'
+    train_ds = create_dataset(use_all=False)
     model = load_pretrained_model(lora_training, qlora_training)
 
     # Training Process
     training_args = TrainingArguments(
-        # num_train_epochs=1,
+        num_train_epochs=1,
         per_device_train_batch_size=4,
         gradient_accumulation_steps=4,
         warmup_steps=50,
@@ -23,7 +24,7 @@ if __name__ == '__main__':
         save_total_limit=1,
         optim="paged_adamw_8bit",  # for 8-bit, keep this, else adamw_hf
         bf16=True,  # underlying precision for 8bit
-        output_dir=f"./full-training2",
+        output_dir=f"./{dirname}",
         report_to="tensorboard",
         remove_unused_columns=False,
         gradient_checkpointing=True

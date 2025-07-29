@@ -1,6 +1,7 @@
 import os
 import asyncio
 
+from argparse import ArgumentParser
 from time import time
 from pathlib import Path
 from utils.car3d import Car3D
@@ -22,7 +23,7 @@ async def main(objective: int):
             from multi_label_classification_models.car_dataset import CarDataset
 
             model_name = "cnn-2"
-            model_dir = THIS_PATH / 'multi_label_classification_models' / model_name / 'models'
+            model_dir = THIS_PATH / 'multi_label_classification_models' / model_name / 'ckpt'
             model = load_model(model_dir / f'{model_name}.keras')
             transform = torchvision.transforms.ToTensor()
             idx2class = {i: name for i, name in enumerate(CarDataset(use_case='multi-label').classes)}
@@ -35,16 +36,16 @@ async def main(objective: int):
 
                     start_time = time()
                     img = img.resize((224, 224)).convert("RGB")
-                    arr = np.array(transform(img))
-                    arr = arr[np.newaxis, ...]
-                    prediction = model.predict(arr, verbose=0)
+                    prediction = model.predict(np.array([transform(img)]), verbose=0)
                     prediction = (prediction[0] >= threshold).astype(int)
 
                     elapsed = time() - start_time
                     print(
                         f"{CLEAR_LINE}"
                         f"{(1 / elapsed) if elapsed else 0 :.2f} it/s - "
-                        f"{' | '.join(idx2class[i] for i, pred in enumerate(prediction) if pred)}"
+                        f"{' | '.join(idx2class[i] for i, pred in enumerate(prediction) if pred)}",
+                        end='\r',
+                        flush=True
                     )
 
         case 2:
@@ -53,7 +54,7 @@ async def main(objective: int):
             from vision_language_models.load_model import processor
 
             device = "cuda" if torch.cuda.is_available() else "cpu"
-            model_path = THIS_PATH / 'vision_language_models' / 'full-training'
+            model_path = THIS_PATH / 'vision_language_models' / 'SmolVLM-500M-Instruct-full-training'
 
             model = AutoModelForImageTextToText.from_pretrained(
                 model_path,
@@ -83,6 +84,17 @@ async def main(objective: int):
                     elapsed = time() - start_time
                     print(f"{elapsed} s - {generated_texts[0]}")
 
+        case _:
+            raise ValueError(f"Unknown objective: {objective}")
 
 if __name__ == '__main__':
-    asyncio.run(main(1))
+    parser = ArgumentParser()
+    parser.add_argument(
+        "objective", type=int,
+        help="Mode to run respective to the objective: "
+             "1. Realtime detection using CNN; "
+             "2. Describe using Visual Language Model"
+    )
+
+    args = parser.parse_args()
+    asyncio.run(main(args.objective))
