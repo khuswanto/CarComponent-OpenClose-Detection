@@ -6,8 +6,8 @@ from transformers import TrainingArguments, Trainer
 if __name__ == '__main__':
     lora_training = False
     qlora_training = True
-    dirname = 'SmolVLM-Instruct-qlora'
-    train_ds = create_dataset(use_all=False)
+    dirname = 'SmolVLM-Instruct-qlora-30'
+    train_ds = create_dataset(portion=.3)
     model = load_pretrained_model(lora_training, qlora_training)
 
     # Training Process
