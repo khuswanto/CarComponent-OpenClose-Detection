@@ -54,7 +54,7 @@ async def main(objective: int):
             from vision_language_models.load_model import processor
 
             device = "cuda" if torch.cuda.is_available() else "cpu"
-            model_path = THIS_PATH / 'vision_language_models' / 'SmolVLM-500M-Instruct-full-training'
+            model_path = THIS_PATH / 'vision_language_models' / 'SmolVLM-Instruct-qlora-30'
 
             model = AutoModelForImageTextToText.from_pretrained(
                 model_path,
@@ -90,7 +90,8 @@ async def main(objective: int):
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument(
-        "objective", type=int,
+        "objective",
+        type=int,
         help="Mode to run respective to the objective: "
              "1. Realtime detection using CNN; "
              "2. Describe using Visual Language Model"
